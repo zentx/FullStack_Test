@@ -1,0 +1,12 @@
+diff --git a/src/Entity/CheeseListing.php b/src/Entity/CheeseListing.php
+index f22c3c0..bbd5f63 100644
+--- a/src/Entity/CheeseListing.php
++++ b/src/Entity/CheeseListing.php
+@@ -85,6 +85,7 @@ class CheeseListing
+     /**
+      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="cheeseListings")
+      * @ORM\JoinColumn(nullable=false)
++     * @Groups({"cheese_listing:read", "cheese_listing:write"})
+      */
+     private $owner;
+ 

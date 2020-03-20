@@ -1,0 +1,28 @@
+diff --git a/src/Entity/CheeseListing.php b/src/Entity/CheeseListing.php
+index 7ec095a..222ccc7 100644
+--- a/src/Entity/CheeseListing.php
++++ b/src/Entity/CheeseListing.php
+@@ -20,7 +20,10 @@ use Symfony\Component\Validator\Constraints as Assert;
+  *          "get"={
+  *              "normalization_context"={"groups"={"cheese_listing:read", "cheese_listing:item:get"}},
+  *          },
+- *          "put"={"access_control"="is_granted('ROLE_USER') and object.getOwner() == user"},
++ *          "put"={
++ *              "access_control"="is_granted('ROLE_USER') and object.getOwner() == user",
++ *              "access_control_message"="Only the creator can edit a cheese listing"
++ *          },
+  *          "delete"={"access_control"="is_granted('ROLE_ADMIN')"}
+  *     },
+  *     collectionOperations={
+diff --git a/tests/Functional/CheeseListingResourceTest.php b/tests/Functional/CheeseListingResourceTest.php
+index 938b82f..df1b9b9 100644
+--- a/tests/Functional/CheeseListingResourceTest.php
++++ b/tests/Functional/CheeseListingResourceTest.php
+@@ -47,6 +47,7 @@ class CheeseListingResourceTest extends CustomApiTestCase
+             'json' => ['title' => 'updated']
+         ]);
+         $this->assertResponseStatusCodeSame(403, 'only author can updated');
++        var_dump($client->getResponse()->getContent(true));
+ 
+         $this->logIn($client, 'user1@example.com', 'foo');
+         $client->request('PUT', '/api/cheeses/'.$cheeseListing->getId(), [

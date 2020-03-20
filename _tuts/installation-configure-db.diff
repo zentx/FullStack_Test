@@ -1,0 +1,42 @@
+diff --git a/.env b/.env
+index 62b8545..58b6d22 100644
+--- a/.env
++++ b/.env
+@@ -28,5 +28,5 @@ CORS_ALLOW_ORIGIN=^https?://localhost(:[0-9]+)?$
+ # Format described at http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html#connecting-using-a-url
+ # For an SQLite database, use: "sqlite:///%kernel.project_dir%/var/data.db"
+ # Configure your db driver and server_version in config/packages/doctrine.yaml
+-DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
++DATABASE_URL=mysql://root:@127.0.0.1:3306/cheese_whiz
+ ###< doctrine/doctrine-bundle ###
+diff --git a/README.md b/README.md
+index dd3dbae..d178a74 100644
+--- a/README.md
++++ b/README.md
+@@ -21,6 +21,26 @@ composer install
+ You may alternatively need to run `php composer.phar install`, depending
+ on how you installed Composer.
+ 
++**Configure the .env (or .env.local) File**
++
++Open the `.env` file and make any adjustments you need - specifically
++`DATABASE_URL`. Or, if you want, you can create a `.env.local` file
++and *override* any configuration you need there (instead of changing
++`.env` directly).
++
++**Setup the Database**
++
++Again, make sure `.env` is setup for your computer. Then, create
++the database & tables!
++
++```
++php bin/console doctrine:database:create
++```
++
++If you get an error that the database exists, that should
++be ok. But if you have problems, completely drop the
++database (`doctrine:database:drop --force`) and try again.
++
+ **Start the built-in web server**
+ 
+ You can use Nginx or Apache, but Symfony's local web server

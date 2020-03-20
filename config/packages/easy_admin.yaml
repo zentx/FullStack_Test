@@ -1,0 +1,69 @@
+
+easy_admin:
+   design: 
+    menu:
+      - Article
+      - { entity: Department, icon: 'building' }
+      - { entity: Role, icon: 'book'}
+      - { entity: User, icon: 'user', permission: 'ROLE_ADMIN' }
+   site_name: 'CMS Admin Area'
+   user:
+        display_name: true
+        display_avatar: true
+        name_property_path: 'username'
+   entities:
+       # List the entity class name you want to manage
+    Article:
+        controller: App\Controller\AdminController
+        class: App\Entity\Article
+        label: "Articulos"
+        form:
+          fields:
+          - { type: 'group', icon: 'pencil', label: 'Información Basica' }
+          - { property: 'title', label: 'Titulo'}
+          - { property: 'description', type: 'text_editor', label: 'Descripción', css_class: 'js-description' }
+          - { property: 'body', type: 'text_editor', label: 'Cuerpo' }
+          - { property: 'imageurl', label: 'Imagen (URL)' }
+        list:
+          fields: 
+            - id
+            - { property: 'title', label: 'Titulo'}
+            - { property: 'description', label: 'Descripción' }
+            - { property: 'body', label: 'Cuerpo' }
+          actions:
+            - { name: 'show', label: "Mostrar" }
+            - { name: 'edit', label: "Editar" }
+            - { name: 'delete', label: "Borrar" }
+          title: "Articulos"
+    User:
+        class: App\Entity\User
+        label: "Usuarios"
+        form:
+          fields:
+          - { property: 'username', label: 'Nombre de Usuario' }
+          - { property: 'password',  label: 'Contraseña' }
+          - { property: 'department', label: 'Departamento' }
+          - {property: 'role', label: 'Rol'}
+        list:
+          fields: 
+            - id
+            - { property: 'username', label: 'Usuario' }
+            - { property: 'department', label: 'Departamento' }
+            - { property: 'role', label: 'Rol'} 
+          item_permission: 'ROLE_ADMIN'
+          actions:
+            - { name: 'show', label: "Mostrar" }
+            - { name: 'edit', label: "Editar" }
+            - { name: 'delete', label: "Borrar" }
+          title: "Usuarios"
+        show:
+          fields: 
+            - {property: 'username', label: 'Usuario' }
+            - {property: 'department', label: 'Departamento' }
+    Department:
+        class: App\Entity\Department
+        label: "Departamento"
+    Role:
+        class: App\Entity\Role
+        label: "Rol" 
+

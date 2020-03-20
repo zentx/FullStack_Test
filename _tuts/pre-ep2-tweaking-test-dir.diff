@@ -1,0 +1,97 @@
+diff --git a/tutorial/Test/ApiTestAssertionsTrait.php b/tutorial/Test/ApiTestAssertionsTrait.php
+index fbdf7f7..b1d3999 100644
+--- a/tutorial/Test/ApiTestAssertionsTrait.php
++++ b/tutorial/Test/ApiTestAssertionsTrait.php
+@@ -11,11 +11,11 @@
+ 
+ declare(strict_types=1);
+ 
+-namespace ApiPlatform\Core\Bridge\Symfony\Bundle\Test;
++namespace App\ApiPlatform\Test;
+ 
+ use ApiPlatform\Core\Api\OperationType;
+-use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\Constraint\ArraySubset;
+-use ApiPlatform\Core\Bridge\Symfony\Bundle\Test\Constraint\MatchesJsonSchema;
++use App\ApiPlatform\Test\Constraint\ArraySubset;
++use App\ApiPlatform\Test\Constraint\MatchesJsonSchema;
+ use ApiPlatform\Core\JsonSchema\Schema;
+ use ApiPlatform\Core\JsonSchema\SchemaFactoryInterface;
+ use PHPUnit\Framework\ExpectationFailedException;
+diff --git a/tutorial/Test/ApiTestCase.php b/tutorial/Test/ApiTestCase.php
+index 5bfced6..3534178 100644
+--- a/tutorial/Test/ApiTestCase.php
++++ b/tutorial/Test/ApiTestCase.php
+@@ -11,7 +11,7 @@
+ 
+ declare(strict_types=1);
+ 
+-namespace ApiPlatform\Core\Bridge\Symfony\Bundle\Test;
++namespace App\ApiPlatform\Test;
+ 
+ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+ use Symfony\Component\BrowserKit\AbstractBrowser;
+diff --git a/tutorial/Test/BrowserKitAssertionsTrait.php b/tutorial/Test/BrowserKitAssertionsTrait.php
+index 2aec96f..3fecdaf 100644
+--- a/tutorial/Test/BrowserKitAssertionsTrait.php
++++ b/tutorial/Test/BrowserKitAssertionsTrait.php
+@@ -20,7 +20,7 @@ declare(strict_types=1);
+  * file that was distributed with this source code.
+  */
+ 
+-namespace ApiPlatform\Core\Bridge\Symfony\Bundle\Test;
++namespace App\ApiPlatform\Test;
+ 
+ use PHPUnit\Framework\Constraint\LogicalAnd;
+ use PHPUnit\Framework\Constraint\LogicalNot;
+diff --git a/tutorial/Test/Client.php b/tutorial/Test/Client.php
+index aba32d2..aa9438e 100644
+--- a/tutorial/Test/Client.php
++++ b/tutorial/Test/Client.php
+@@ -11,7 +11,7 @@
+ 
+ declare(strict_types=1);
+ 
+-namespace ApiPlatform\Core\Bridge\Symfony\Bundle\Test;
++namespace App\ApiPlatform\Test;
+ 
+ use Symfony\Bundle\FrameworkBundle\KernelBrowser;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+diff --git a/tutorial/Test/Constraint/ArraySubset.php b/tutorial/Test/Constraint/ArraySubset.php
+index 9c68e44..980427a 100644
+--- a/tutorial/Test/Constraint/ArraySubset.php
++++ b/tutorial/Test/Constraint/ArraySubset.php
+@@ -11,7 +11,7 @@
+ 
+ declare(strict_types=1);
+ 
+-namespace ApiPlatform\Core\Bridge\Symfony\Bundle\Test\Constraint;
++namespace App\ApiPlatform\Test\Constraint;
+ 
+ use PHPUnit\Framework\Constraint\Constraint;
+ use PHPUnit\Framework\ExpectationFailedException;
+diff --git a/tutorial/Test/Constraint/MatchesJsonSchema.php b/tutorial/Test/Constraint/MatchesJsonSchema.php
+index 19f012d..3d98f69 100644
+--- a/tutorial/Test/Constraint/MatchesJsonSchema.php
++++ b/tutorial/Test/Constraint/MatchesJsonSchema.php
+@@ -11,7 +11,7 @@
+ 
+ declare(strict_types=1);
+ 
+-namespace ApiPlatform\Core\Bridge\Symfony\Bundle\Test\Constraint;
++namespace App\ApiPlatform\Test\Constraint;
+ 
+ use JsonSchema\Validator;
+ use PHPUnit\Framework\Constraint\Constraint;
+diff --git a/tutorial/Test/Response.php b/tutorial/Test/Response.php
+index e78bbbe..f2dee2d 100644
+--- a/tutorial/Test/Response.php
++++ b/tutorial/Test/Response.php
+@@ -11,7 +11,7 @@
+ 
+ declare(strict_types=1);
+ 
+-namespace ApiPlatform\Core\Bridge\Symfony\Bundle\Test;
++namespace App\ApiPlatform\Test;
+ 
+ use Symfony\Component\BrowserKit\Response as BrowserKitResponse;
+ use Symfony\Component\HttpClient\Exception\ClientException;
