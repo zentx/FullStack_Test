@@ -1,4 +1,3 @@
-<<<<<<< HEAD
+Prueba Fullstack API Y CRUD
 =======
 
->>>>>>> 200efcb73a5c2b200448c73696964ecc32b986c8
