@@ -1,3 +1,4 @@
-index:
-   path: /
-   controller: App\Controller\SecurityController::index
+# index:
+#    path: /
+#    controller: App\Controller\SecurityController::index
+
