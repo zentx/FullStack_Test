@@ -21,8 +21,8 @@ easy_admin:
           fields:
           - { type: 'group', icon: 'pencil', label: 'Información Basica' }
           - { property: 'title', label: 'Titulo'}
-          - { property: 'description', type: 'text_editor', label: 'Descripción', css_class: 'js-description' }
-          - { property: 'body', type: 'text_editor', label: 'Cuerpo' }
+          - { property: 'description', label: 'Descripción', css_class: 'js-description' }
+          - { property: 'body', label: 'Cuerpo' }
           - { property: 'imageurl', label: 'Imagen (URL)' }
         list:
           fields: 
